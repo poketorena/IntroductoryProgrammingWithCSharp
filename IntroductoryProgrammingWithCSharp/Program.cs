@@ -10,13 +10,18 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 9; i++)
+            var a = new int[21];
+
+            a[0] = 3;
+            a[1] = 1;
+            for (int i = 2; i < a.Length; i++)
             {
-                for (int j = 1; j <= 9; j++)
-                {
-                    Console.Write((i * j).ToString().PadLeft(3, ' '));
-                }
-                Console.Write("\n");
+                a[i] = 2 * a[i - 1] - 2 * a[i - 2];
+            }
+
+            foreach (var item in a)
+            {
+                Console.WriteLine(item);
             }
         }
     }
