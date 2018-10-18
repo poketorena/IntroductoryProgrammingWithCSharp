@@ -11,16 +11,21 @@ namespace IntroductoryProgrammingWithCSharp
         static void Main(string[] args)
         {
             var arr = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var arr2 = new[] { 1.0, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int max = Max(arr);
+            double max2 = Max(arr2);
             int min = Min(arr);
             double avg = Average(arr);
+            double pow = Power(5, 3);
             Console.WriteLine(max);
-            Console.WriteLine(min);
-            Console.WriteLine(avg);
+            Console.WriteLine(max2);
+            //Console.WriteLine(min);
+            //Console.WriteLine(avg);
+            //Console.WriteLine(pow);
         }
 
         /// <summary>
-        /// 配列中の最大値を求める
+        /// 配列中の最大値を求める。
         /// </summary>
         /// <param name="a">対象の配列</param>
         /// <returns>最大値</returns>
@@ -38,7 +43,25 @@ namespace IntroductoryProgrammingWithCSharp
         }
 
         /// <summary>
-        /// 配列中の最小値を求める
+        /// 配列中の最大値を求める。
+        /// </summary>
+        /// <param name="a">対象の配列</param>
+        /// <returns>最大値</returns>
+        static double Max(double[] a)
+        {
+            double max_t = double.MinValue;
+            foreach (var item in a)
+            {
+                if (item > max_t)
+                {
+                    max_t = item;
+                }
+            }
+            return max_t;
+        }
+
+        /// <summary>
+        /// 配列中の最小値を求める。
         /// </summary>
         /// <param name="a">対象の配列</param>
         /// <returns>最小値</returns>
@@ -56,7 +79,7 @@ namespace IntroductoryProgrammingWithCSharp
         }
 
         /// <summary>
-        /// 配列中の平均値を求める
+        /// 配列中の平均値を求める。
         /// </summary>
         /// <param name="a">対象の配列</param>
         /// <returns>平均値</returns>
@@ -68,6 +91,22 @@ namespace IntroductoryProgrammingWithCSharp
                 sum += item;
             }
             return sum / (double)a.Length;
+        }
+
+        /// <summary>
+        /// xの整数冪を求める。
+        /// </summary>
+        /// <param name="x">仮数</param>
+        /// <param name="n">指数</param>
+        /// <returns>xのn乗</returns>
+        static double Power(double x, int n)
+        {
+            double pow = 1;
+            for (int i = 0; i < n; i++)
+            {
+                pow *= x;
+            }
+            return pow;
         }
     }
 }
