@@ -12,14 +12,15 @@ namespace IntroductoryProgrammingWithCSharp
         {
             Console.WriteLine("整数を入力してください");
             int n = int.Parse(Console.ReadLine());
-            int sum = 0;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; (i + 1) * (i + 1) <= n; i++)
             {
-                sum += i + 1;
+                if (n == (i + 1) * (i + 1))
+                {
+                    Console.WriteLine("Yes");
+                    return;
+                }
             }
-            Console.WriteLine(sum);
-
-            Console.WriteLine(n * (n + 1) / 2);
+            Console.WriteLine("No");
         }
     }
 }
