@@ -10,19 +10,12 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            double x, y, z;
+            Console.Write("半径を入力してください: ");
+            double x = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("input x :");
-            x = double.Parse(Console.ReadLine());
+            double area = x * x * Math.PI;
 
-            Console.WriteLine("input y :");
-            y = double.Parse(Console.ReadLine());
-
-            z = x * x + y * y;
-            x /= z;
-            y /= -z;
-
-            Console.WriteLine("({0},{1})", x, y);
+            Console.Write("半径{0}の円の面積は{1}\n", x, area);
         }
     }
 }
