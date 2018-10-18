@@ -10,13 +10,10 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            Console.Write("身長[cm] = ");
-            double height = double.Parse(Console.ReadLine());
-            Console.Write("体重[kg] = ");
-            double weight = double.Parse(Console.ReadLine());
+            Console.Write("文字を入力してください");
+            char c = char.Parse(Console.ReadLine());
 
-            double bmi = weight / (height * height / 10000);
-            Console.WriteLine("BMI = {0}", bmi);
+            Console.WriteLine("文字コードは{0}", (int)c);
         }
     }
 }
