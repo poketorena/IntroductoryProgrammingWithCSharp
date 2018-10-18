@@ -10,19 +10,36 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            try
+            // 整数を2つ入力してもらう
+            int x, y;
+            Console.Write("1つ目の整数を入力してください : ");
+            x = int.Parse(Console.ReadLine());
+            Console.Write("2つ目の整数を入力してください : ");
+            y = int.Parse(Console.ReadLine());
+
+            // + - / * のいずれかを入力してもらう
+            char op;
+            Console.Write("行いたい操作を入力してください(+ - / *) : ");
+            op = Console.ReadLine()[0];
+
+            switch (op)
             {
-                checked
-                {
-                    sbyte a = 64;
-                    sbyte b = 65;
-                    sbyte c = (sbyte)(a + b);
-                }
-            }
-            catch (OverflowException ex)
-            {
-                Console.Write(ex.Message);
-                throw;
+                case '+':
+                    Console.Write("{0} + {1} = {2}", x, y, x + y);
+                    break;
+                case '-':
+                    Console.Write("{0} - {1} = {2}", x, y, x - y);
+                    break;
+                case '*':
+                    Console.Write("{0} × {1} = {2}", x, y, x * y);
+                    break;
+                case '/':
+                    if (y != 0)
+                        Console.Write("{0} ÷ {1} = {2} … {3}", x, y, x / y, x % y);
+                    break;
+                default:
+                    Console.Write("対応していない操作です");
+                    break;
             }
         }
     }
