@@ -10,48 +10,64 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            // 2*2の行列の積を求めるプログラム(n*nは未対応)
-            Console.WriteLine("配列の長さを入力して下さい");
-            int length = int.Parse(Console.ReadLine());
-            var a = new int[length, length];
-            var b = new int[length, length];
-            Console.WriteLine("一つ目の配列の要素を入力して下さい");
-            for (int i = 0; i < a.GetLength(0); i++)
-            {
-                for (int j = 0; j < a.GetLength(1); j++)
-                {
-                    a[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
-            Console.WriteLine("二つ目の配列の要素を入力して下さい");
-            for (int i = 0; i < b.GetLength(0); i++)
-            {
-                for (int j = 0; j < b.GetLength(1); j++)
-                {
-                    b[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
+            var arr = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int max = Max(arr);
+            int min = Min(arr);
+            double avg = Average(arr);
+            Console.WriteLine(max);
+            Console.WriteLine(min);
+            Console.WriteLine(avg);
+        }
 
-            var c = new int[length, length];
-            for (int i = 0; i < length; i++)
+        /// <summary>
+        /// 配列中の最大値を求める
+        /// </summary>
+        /// <param name="a">対象の配列</param>
+        /// <returns>最大値</returns>
+        static int Max(int[] a)
+        {
+            int max_t = int.MinValue;
+            foreach (var item in a)
             {
-                for (int j = 0; j < c.GetLength(0); j++)
+                if (item > max_t)
                 {
-                    for (int k = 0; k < c.GetLength(1); k++)
-                    {
-                        c[i, j] += a[i, k] * b[k, j];
-                    }
+                    max_t = item;
                 }
             }
+            return max_t;
+        }
 
-            for (int i = 0; i < c.GetLength(0); i++)
+        /// <summary>
+        /// 配列中の最小値を求める
+        /// </summary>
+        /// <param name="a">対象の配列</param>
+        /// <returns>最小値</returns>
+        static int Min(int[] a)
+        {
+            int min_t = int.MaxValue;
+            foreach (var item in a)
             {
-                for (int j = 0; j < c.GetLength(1); j++)
+                if (item < min_t)
                 {
-                    Console.Write(c[i, j].ToString().PadLeft(2, ' '));
+                    min_t = item;
                 }
-                Console.Write("\n");
             }
+            return min_t;
+        }
+
+        /// <summary>
+        /// 配列中の平均値を求める
+        /// </summary>
+        /// <param name="a">対象の配列</param>
+        /// <returns>平均値</returns>
+        static double Average(int[] a)
+        {
+            int sum = 0;
+            foreach (var item in a)
+            {
+                sum += item;
+            }
+            return sum / (double)a.Length;
         }
     }
 }
