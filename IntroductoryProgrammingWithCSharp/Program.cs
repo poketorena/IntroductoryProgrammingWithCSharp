@@ -12,19 +12,11 @@ namespace IntroductoryProgrammingWithCSharp
         {
             Console.WriteLine("整数を入力してください");
             int x = int.Parse(Console.ReadLine());
-            for (int i = 0; i < 150; i++)
-            {
-                if (Math.Pow(i + 1, 2) > 150)
-                {
-                    break;
-                }
-                if (x == (int)Math.Pow(i + 1, 2))
-                {
-                    Console.WriteLine("YES");
-                    return;
-                }
-            }
-            Console.WriteLine("NO");
+            int y = int.Parse(Console.ReadLine());
+            int z = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("最大値は{0}です", Math.Max(x, Math.Max(y, z)));
+            Console.WriteLine("最小値は{0}です", Math.Min(x, Math.Min(y, z)));
         }
     }
 }
