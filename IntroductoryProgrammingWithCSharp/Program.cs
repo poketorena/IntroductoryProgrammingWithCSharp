@@ -10,10 +10,20 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            Console.Write("実数を入力してください：");
-            double a = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("{0}をintへキャストした結果は{1}", a, (int)a);
+            try
+            {
+                checked
+                {
+                    sbyte a = 64;
+                    sbyte b = 65;
+                    sbyte c = (sbyte)(a + b);
+                }
+            }
+            catch (OverflowException ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
         }
     }
 }
