@@ -10,19 +10,48 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            var a = new int[21];
-
-            a[0] = 3;
-            a[1] = 1;
-            for (int i = 2; i < a.Length; i++)
+            Console.WriteLine("配列の長さを入力して下さい");
+            int length = int.Parse(Console.ReadLine());
+            var a = new int[length];
+            Console.WriteLine("配列の要素を入力して下さい");
+            for (int i = 0; i < a.Length; i++)
             {
-                a[i] = 2 * a[i - 1] - 2 * a[i - 2];
+                a[i] = int.Parse(Console.ReadLine());
             }
 
-            foreach (var item in a)
+            int max = int.MinValue;
+            for (int i = 0; i < a.Length; i++)
             {
-                Console.WriteLine(item);
+                if (i == 0)
+                {
+                    max = a[i];
+                }
+                else
+                {
+                    if (a[i] > max)
+                    {
+                        max = a[i];
+                    }
+                }
             }
+            Console.WriteLine("最大値" + max);
+
+            int min = int.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (i == 0)
+                {
+                    min = a[i];
+                }
+                else
+                {
+                    if (a[i] < min)
+                    {
+                        min = a[i];
+                    }
+                }
+            }
+            Console.WriteLine("最小値" + min);
         }
     }
 }
