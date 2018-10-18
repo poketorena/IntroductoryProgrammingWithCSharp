@@ -10,48 +10,48 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
+            // 2*2の行列の積を求めるプログラム(n*nは未対応)
             Console.WriteLine("配列の長さを入力して下さい");
             int length = int.Parse(Console.ReadLine());
-            var a = new int[length];
-            Console.WriteLine("配列の要素を入力して下さい");
-            for (int i = 0; i < a.Length; i++)
+            var a = new int[length, length];
+            var b = new int[length, length];
+            Console.WriteLine("一つ目の配列の要素を入力して下さい");
+            for (int i = 0; i < a.GetLength(0); i++)
             {
-                a[i] = int.Parse(Console.ReadLine());
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    a[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            Console.WriteLine("二つ目の配列の要素を入力して下さい");
+            for (int i = 0; i < b.GetLength(0); i++)
+            {
+                for (int j = 0; j < b.GetLength(1); j++)
+                {
+                    b[i, j] = int.Parse(Console.ReadLine());
+                }
             }
 
-            int max = int.MinValue;
-            for (int i = 0; i < a.Length; i++)
+            var c = new int[length, length];
+            for (int i = 0; i < length; i++)
             {
-                if (i == 0)
+                for (int j = 0; j < c.GetLength(0); j++)
                 {
-                    max = a[i];
-                }
-                else
-                {
-                    if (a[i] > max)
+                    for (int k = 0; k < c.GetLength(1); k++)
                     {
-                        max = a[i];
+                        c[i, j] += a[i, k] * b[k, j];
                     }
                 }
             }
-            Console.WriteLine("最大値" + max);
 
-            int min = int.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < c.GetLength(0); i++)
             {
-                if (i == 0)
+                for (int j = 0; j < c.GetLength(1); j++)
                 {
-                    min = a[i];
+                    Console.Write(c[i, j].ToString().PadLeft(2, ' '));
                 }
-                else
-                {
-                    if (a[i] < min)
-                    {
-                        min = a[i];
-                    }
-                }
+                Console.Write("\n");
             }
-            Console.WriteLine("最小値" + min);
         }
     }
 }
