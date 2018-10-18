@@ -11,12 +11,15 @@ namespace IntroductoryProgrammingWithCSharp
         static void Main(string[] args)
         {
             Console.WriteLine("整数を入力してください");
-            int x = int.Parse(Console.ReadLine());
-            int y = int.Parse(Console.ReadLine());
-            int z = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                sum += i + 1;
+            }
+            Console.WriteLine(sum);
 
-            Console.WriteLine("最大値は{0}です", Math.Max(x, Math.Max(y, z)));
-            Console.WriteLine("最小値は{0}です", Math.Min(x, Math.Min(y, z)));
+            Console.WriteLine(n * (n + 1) / 2);
         }
     }
 }
