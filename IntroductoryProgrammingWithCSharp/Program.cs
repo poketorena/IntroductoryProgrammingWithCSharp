@@ -10,15 +10,16 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            var arr = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var arr2 = new[] { 1.0, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int max = Max(arr);
-            double max2 = Max(arr2);
-            int min = Min(arr);
-            double avg = Average(arr);
-            double pow = Power(5, 3);
+            //var arr = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //var arr2 = new[] { 1.0, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //int max = Max(arr);
+            //double max2 = Max(arr2);
+            //int min = Min(arr);
+            //double avg = Average(arr);
+            //double pow = Power(5, 3);
+            var max = Max(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
             Console.WriteLine(max);
-            Console.WriteLine(max2);
+            //Console.WriteLine(max2);
             //Console.WriteLine(min);
             //Console.WriteLine(avg);
             //Console.WriteLine(pow);
@@ -29,7 +30,7 @@ namespace IntroductoryProgrammingWithCSharp
         /// </summary>
         /// <param name="a">対象の配列</param>
         /// <returns>最大値</returns>
-        static int Max(int[] a)
+        static int Max(params int[] a)
         {
             int max_t = int.MinValue;
             foreach (var item in a)
