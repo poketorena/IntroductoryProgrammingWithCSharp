@@ -10,10 +10,13 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            Console.Write("文字を入力してください");
-            char c = char.Parse(Console.ReadLine());
+            Console.Write("整数を入力してください：");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("整数を入力してください：");
+            int b = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("文字コードは{0}", (int)c);
+            Console.WriteLine("{0} / {1} = {2}", a, b, a / b);
+            Console.WriteLine("{0} / {1} = {2}", a, b, (double)a / (double)b);
         }
     }
 }
