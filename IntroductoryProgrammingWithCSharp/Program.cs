@@ -10,17 +10,14 @@ namespace IntroductoryProgrammingWithCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("整数を入力してください");
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; (i + 1) * (i + 1) <= n; i++)
+            for (int i = 1; i <= 9; i++)
             {
-                if (n == (i + 1) * (i + 1))
+                for (int j = 1; j <= 9; j++)
                 {
-                    Console.WriteLine("Yes");
-                    return;
+                    Console.Write((i * j).ToString().PadLeft(3, ' '));
                 }
+                Console.Write("\n");
             }
-            Console.WriteLine("No");
         }
     }
 }
